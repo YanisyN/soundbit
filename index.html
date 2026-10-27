@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SoundBit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ЭКРАН 1: СТАРТ (ВЫБОР РОЛИ) -->
+    <div id="screen-start" class="screen active">
+        <h1 class="title-pero">SoundBit</h1>
+        <img src="assets/owl.png" alt="Сова" class="main-mascot">
+        <h2 class="role-text">Выберите роль</h2>
+        <div class="role-buttons">
+            <button onclick="showScreen('screen-main')" class="btn-main">Я пользователь<br><span>и хочу заработать деньги</span></button>
+            <button onclick="showScreen('screen-artist-login')" class="btn-main">Я музыкант и<br><span>хочу продвигать треки</span></button>
+        </div>
+    </div>
+
+    <!-- ЭКРАН 2: ВХОД ДЛЯ АРТИСТА -->
+    <div id="screen-artist-login" class="screen">
+        <h2 class="page-title">Вход для артиста</h2>
+        <div class="glass-card">
+            <input type="text" placeholder="Введите код" class="input-glass">
+        </div>
+        <p class="hint-text">*код можно найти в личных сообщениях с владельцем*</p>
+        <button onclick="showScreen('screen-artist-packages')" class="btn-main">Войти</button>
+    </div>
+
+    <!-- ЭКРАН 3: ГЛАВНЫЙ (С ТРЕКОМ) -->
+    <div id="screen-main" class="screen">
+        <div class="header">
+            <button class="pill-btn" onclick="showScreen('screen-user-stats')">📊 Статистика</button>
+            <div class="pill-btn balance">Баланс: 10₽ | 20 Шармов</div>
+        </div>
+        
+        <h2 class="task-title">Прослушивание с лайком</h2>
+        
+        <div class="track-card">
+            <img src="assets/cover.jpg" class="track-cover">
+        </div>
+        <h3 class="track-name">Название трека</h3>
+        <p class="track-price">5₽ 20 шармов</p>
+        
+        <div class="action-buttons">
+            <button class="btn-action">Выполнить задание</button>
+            <button class="btn-action">Прислать скриншот</button>
+        </div>
+    </div>
+
+    <!-- ЭКРАН 4: СТАТИСТИКА ПОЛЬЗОВАТЕЛЯ -->
+    <div id="screen-user-stats" class="screen">
+        <h2 class="page-title">Статистика</h2>
+        <h3 class="balance-text">Баланс: 350₽ | 150 Шармов</h3>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('rub')">Задания за рубли</button>
+            <button class="tab" onclick="switchTab('charms')">Задания за Шармы</button>
+        </div>
+
+        <div id="tab-rub" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card"><span>Выполнено:</span><strong>120</strong></div>
+                <div class="stat-card"><span>На проверке:</span><strong>15</strong></div>
+                <div class="stat-card"><span>Заработано:</span><strong>350₽</strong></div>
+                <div class="stat-card"><span>Отклонено:</span><strong>3</strong></div>
+            </div>
+        </div>
+
+        <div id="tab-charms" class="tab-content">
+            <div class="stats-grid">
+                <div class="stat-card"><span>Выполнено:</span><strong>80</strong></div>
+                <div class="stat-card"><span>На проверке:</span><strong>5</strong></div>
+                <div class="stat-card"><span>Заработано:</span><strong>2000 Шармов</strong></div>
+                <div class="stat-card"><span>Отклонено:</span><strong>3</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЭКРАН 5: РУЛЕТКА -->
+    <div id="screen-roulette" class="screen">
+        <h2 class="page-title">Рулетка удачи</h2>
+        <div class="roulette-wheel">
+            <button class="spin-btn">Крутить</button>
+        </div>
+        <p class="hint-text">У тебя: 3 билетика</p>
+        <button class="btn-main">Купить билетик (250 Шармов)</button>
+    </div>
+
+    <!-- ЭКРАН 6: ПРАВИЛА -->
+    <div id="screen-rules" class="screen">
+        <h2 class="page-title">Правила</h2>
+        <div class="glass-card" style="text-align: left; font-size: 14px; line-height: 1.5;">
+            <p style="margin-bottom: 10px;">• Выполняй задания строго по инструкции.</p>
+            <p style="margin-bottom: 10px;">• Если просят лайк — не убирай его.</p>
+            <p style="margin-bottom: 10px;">• За одни задания платят только Шармы, за другие — рубли и Шармы.</p>
+            <p>• За обман или ботов — бан.</p>
+        </div>
+        <button class="btn-main">Написать в поддержку</button>
+    </div>
+
+    <!-- ЭКРАН 7: ВЫВОД -->
+    <div id="screen-withdraw" class="screen">
+        <h2 class="page-title">Вывод</h2>
+        <h3 class="balance-text">Доступно: 350₽</h3>
+        <div class="glass-card" style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" placeholder="Сумма от 250₽" class="input-glass" style="border-bottom: 1px solid #555; padding-bottom: 5px;">
+            <div style="display: flex; gap: 10px;">
+                <button class="tab active">Карта</button>
+                <button class="tab">СБП</button>
+                <button class="tab">Крипта</button>
+            </div>
+            <input type="text" placeholder="Реквизиты" class="input-glass" style="border-bottom: 1px solid #555; padding-bottom: 5px;">
+        </div>
+        <button class="btn-main">Отправить заявку</button>
+    </div>
+
+    <!-- ЭКРАН 8: МОИ ПАКЕТЫ (АРТИСТ) -->
+    <div id="screen-artist-packages" class="screen">
+        <h2 class="page-title">Мои пакеты</h2>
+        <button onclick="showScreen('screen-package-stats')" class="btn-package">Пакет 100 лайков</button>
+        <button class="btn-package">Пакет 200 лайков</button>
+        <button class="btn-package">Пакет 300 лайков</button>
+    </div>
+
+    <!-- ЭКРАН 9: СТАТИСТИКА ПАКЕТА (АРТИСТ) -->
+    <div id="screen-package-stats" class="screen">
+        <h2 class="page-title">Пакет 100 лайков</h2>
+        <div class="progress-card">
+            <p>Выполнено 20 из 100</p>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-card"><span>Осталось:</span><strong>80</strong></div>
+            <div class="stat-card"><span>На проверке:</span><strong>5</strong></div>
+            <div class="stat-card"><span>С лайками:</span><strong>15</strong></div>
+        </div>
+        <button onclick="showScreen('screen-artist-packages')" class="btn-main">← Назад</button>
+    </div>
+
+    <!-- НИЖНЕЕ МЕНЮ -->
+    <div class="bottom-nav">
+        <button onclick="showScreen('screen-main')">🏠 Главная</button>
+        <button onclick="showScreen('screen-roulette')">🎰 Рулетка</button>
+        <button onclick="showScreen('screen-rules')">📜 Правила</button>
+        <button onclick="showScreen('screen-withdraw')">💸 Вывод</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
