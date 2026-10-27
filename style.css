@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Unbounded', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #2A1732;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.title-pero {
+    font-size: 36px;
+    font-weight: 900;
+    color: #E8D5FF;
+    text-shadow: 0 0 20px rgba(187, 143, 255, 0.8);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-mascot {
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.btn-main {
+    background: #D1B3FF;
+    color: #2A1732;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-main span {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.pill-btn {
+    background: rgba(209, 179, 255, 0.2);
+    color: #E8D5FF;
+    border: 1px solid #D1B3FF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.task-title {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E8D5FF;
+}
+
+.track-card {
+    background: #1A0F22;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.track-cover {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.track-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.track-price {
+    color: #D1B3FF;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    background: #D1B3FF;
+    color: #2A1732;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-glass {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+.hint-text {
+    font-size: 10px;
+    color: #BBA8C9;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #D1B3FF;
+    background: transparent;
+    color: #D1B3FF;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tab.active {
+    background: #D1B3FF;
+    color: #2A1732;
+}
+
+.balance-text {
+    color: #D1B3FF;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    color: #2A1732;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-card span {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-card strong {
+    font-size: 20px;
+}
+
+.bottom-nav {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    background: #1A0F22;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid #3D2A4A;
+}
+
+.bottom-nav button {
+    background: transparent;
+    border: none;
+    color: #BBA8C9;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.roulette-wheel {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#D1B3FF 0deg 45deg, #8A2BE2 45deg 90deg, #D1B3FF 90deg 135deg, #8A2BE2 135deg 180deg, #D1B3FF 180deg 225deg, #8A2BE2 225deg 270deg, #D1B3FF 270deg 315deg, #8A2BE2 315deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    box-shadow: 0 0 30px rgba(209, 179, 255, 0.5);
+    position: relative;
+}
+
+.spin-btn {
+    background: #2A1732;
+    color: #fff;
+    border: 2px solid #D1B3FF;
+    padding: 15px 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.btn-package {
+    background: #FFFFFF;
+    color: #2A1732;
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.progress-card {
+    background: #FFFFFF;
+    color: #2A1732;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #E0D0FF;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    width: 20%;
+    height: 100%;
+    background: #8A2BE2;
+    border-radius: 5px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
